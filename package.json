@@ -1,0 +1,258 @@
+{
+  "name": "cui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "react-native": "./dist/index.native.js",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./primitives": {
+      "types": "./dist/primitives/index.web.d.ts",
+      "react-native": "./dist/primitives/index.native.js",
+      "import": "./dist/primitives/index.web.js",
+      "require": "./dist/primitives/index.web.cjs"
+    },
+    "./layout": {
+      "types": "./dist/layout/index.web.d.ts",
+      "react-native": "./dist/layout/index.native.js",
+      "import": "./dist/layout/index.web.js",
+      "require": "./dist/layout/index.web.cjs"
+    },
+    "./components": {
+      "types": "./dist/components/index.web.d.ts",
+      "react-native": "./dist/components/index.native.js",
+      "import": "./dist/components/index.web.js",
+      "require": "./dist/components/index.web.cjs"
+    },
+    "./theme": {
+      "types": "./dist/theme/index.d.ts",
+      "react-native": "./dist/theme/index.js",
+      "import": "./dist/theme/index.js",
+      "require": "./dist/theme/index.cjs"
+    },
+    "./icons": {
+      "types": "./dist/icons/index.web.d.ts",
+      "react-native": "./dist/icons/index.native.js",
+      "import": "./dist/icons/index.web.js",
+      "require": "./dist/icons/index.web.cjs"
+    },
+    "./hooks": {
+      "types": "./dist/hooks/index.web.d.ts",
+      "react-native": "./dist/hooks/index.native.js",
+      "import": "./dist/hooks/index.web.js",
+      "require": "./dist/hooks/index.web.cjs"
+    },
+    "./styles.css": "./src/styles.css"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "check-types": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.4.0"
+  },
+  "peerDependencies": {
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0",
+    "react-native": ">=0.74.0",
+    "react-native-web": ">=0.19.0",
+    "nativewind": ">=4.0.0",
+    "lucide-react": ">=0.400.0",
+    "lucide-react-native": ">=0.400.0",
+    "@radix-ui/react-label": ">=2.0.0",
+    "@radix-ui/react-progress": ">=1.0.0",
+    "@radix-ui/react-slot": ">=1.0.0",
+    "@radix-ui/react-checkbox": ">=1.0.0",
+    "@radix-ui/react-switch": ">=1.0.0",
+    "@radix-ui/react-select": ">=2.0.0",
+    "@radix-ui/react-tabs": ">=1.0.0",
+    "@radix-ui/react-radio-group": ">=1.0.0",
+    "@radix-ui/react-slider": ">=1.0.0",
+    "@radix-ui/react-dialog": ">=1.0.0",
+    "@radix-ui/react-alert-dialog": ">=1.0.0",
+    "@radix-ui/react-popover": ">=1.0.0",
+    "@radix-ui/react-tooltip": ">=1.0.0",
+    "@radix-ui/react-dropdown-menu": ">=2.0.0",
+    "@radix-ui/react-scroll-area": ">=1.0.0",
+    "@radix-ui/react-collapsible": ">=1.0.0",
+    "@radix-ui/react-accordion": ">=1.0.0",
+    "vaul": ">=1.0.0",
+    "cmdk": ">=1.0.0",
+    "react-hook-form": ">=7.0.0",
+    "react-day-picker": ">=9.0.0",
+    "date-fns": ">=3.0.0",
+    "@radix-ui/react-avatar": ">=1.0.0",
+    "recharts": ">=2.0.0",
+    "@radix-ui/react-aspect-ratio": ">=1.0.0",
+    "@radix-ui/react-context-menu": ">=2.0.0",
+    "@radix-ui/react-direction": ">=1.0.0",
+    "@radix-ui/react-hover-card": ">=1.0.0",
+    "@radix-ui/react-menubar": ">=1.0.0",
+    "@radix-ui/react-navigation-menu": ">=1.0.0",
+    "@radix-ui/react-toast": ">=1.0.0",
+    "@radix-ui/react-toggle": ">=1.0.0",
+    "@radix-ui/react-toggle-group": ">=1.0.0",
+    "embla-carousel": ">=8.0.0",
+    "embla-carousel-react": ">=8.0.0",
+    "@tanstack/react-table": ">=8.0.0",
+    "react-resizable-panels": ">=2.0.0",
+    "sonner": ">=1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    },
+    "react-native": {
+      "optional": true
+    },
+    "react-native-web": {
+      "optional": true
+    },
+    "nativewind": {
+      "optional": true
+    },
+    "lucide-react": {
+      "optional": true
+    },
+    "lucide-react-native": {
+      "optional": true
+    },
+    "@radix-ui/react-label": {
+      "optional": true
+    },
+    "@radix-ui/react-progress": {
+      "optional": true
+    },
+    "@radix-ui/react-slot": {
+      "optional": true
+    },
+    "@radix-ui/react-checkbox": {
+      "optional": true
+    },
+    "@radix-ui/react-switch": {
+      "optional": true
+    },
+    "@radix-ui/react-select": {
+      "optional": true
+    },
+    "@radix-ui/react-tabs": {
+      "optional": true
+    },
+    "@radix-ui/react-radio-group": {
+      "optional": true
+    },
+    "@radix-ui/react-slider": {
+      "optional": true
+    },
+    "@radix-ui/react-dialog": {
+      "optional": true
+    },
+    "@radix-ui/react-alert-dialog": {
+      "optional": true
+    },
+    "@radix-ui/react-popover": {
+      "optional": true
+    },
+    "@radix-ui/react-tooltip": {
+      "optional": true
+    },
+    "@radix-ui/react-dropdown-menu": {
+      "optional": true
+    },
+    "@radix-ui/react-scroll-area": {
+      "optional": true
+    },
+    "@radix-ui/react-collapsible": {
+      "optional": true
+    },
+    "@radix-ui/react-accordion": {
+      "optional": true
+    },
+    "vaul": {
+      "optional": true
+    },
+    "cmdk": {
+      "optional": true
+    },
+    "react-hook-form": {
+      "optional": true
+    },
+    "react-day-picker": {
+      "optional": true
+    },
+    "date-fns": {
+      "optional": true
+    },
+    "@radix-ui/react-avatar": {
+      "optional": true
+    },
+    "recharts": {
+      "optional": true
+    },
+    "@radix-ui/react-aspect-ratio": {
+      "optional": true
+    },
+    "@radix-ui/react-context-menu": {
+      "optional": true
+    },
+    "@radix-ui/react-direction": {
+      "optional": true
+    },
+    "@radix-ui/react-hover-card": {
+      "optional": true
+    },
+    "@radix-ui/react-menubar": {
+      "optional": true
+    },
+    "@radix-ui/react-navigation-menu": {
+      "optional": true
+    },
+    "@radix-ui/react-toast": {
+      "optional": true
+    },
+    "@radix-ui/react-toggle": {
+      "optional": true
+    },
+    "@radix-ui/react-toggle-group": {
+      "optional": true
+    },
+    "embla-carousel": {
+      "optional": true
+    },
+    "embla-carousel-react": {
+      "optional": true
+    },
+    "@tanstack/react-table": {
+      "optional": true
+    },
+    "react-resizable-panels": {
+      "optional": true
+    },
+    "sonner": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@types/react": "^19.2.4",
+    "@types/react-dom": "^19.2.3",
+    "jsdom": "^27.3.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.2",
+    "vitest": "^4.0.16",
+    "@vitejs/plugin-react": "^5.1.2",
+    "vite-tsconfig-paths": "^6.0.3"
+  }
+}
