@@ -308,5 +308,13 @@ export type { LinkPreviewProps } from './link-preview/link-preview.web';
 export { WavyBackground } from './wavy-background/wavy-background.web';
 export type { WavyBackgroundProps } from './wavy-background/wavy-background.web';
 
+// CodeBlock
+export { CodeBlock, CopyButton } from './code/code.web';
+export type { CodeBlockProps } from './code/code.web';
+
+// Markdown
+export { Markdown } from './markdown/markdown.web';
+export type { MarkdownProps } from './markdown/markdown.web';
+
 // Tokens
 export const UI_TOKENS = tokens;
