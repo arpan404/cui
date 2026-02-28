@@ -13,8 +13,8 @@ export const progressVariants = cva(
       },
       variant: {
         default: 'bg-primary/15',
-        success: 'bg-green-500/15',
-        warning: 'bg-yellow-500/15',
+        success: 'bg-success/15',
+        warning: 'bg-warning/15',
         destructive: 'bg-destructive/15',
       },
     },
@@ -28,8 +28,8 @@ export const progressIndicatorVariants = cva(
     variants: {
       variant: {
         default: 'bg-primary',
-        success: 'bg-green-500',
-        warning: 'bg-yellow-500',
+        success: 'bg-success',
+        warning: 'bg-warning',
         destructive: 'bg-destructive',
       },
     },

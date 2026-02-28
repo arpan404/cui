@@ -27,7 +27,7 @@ function PaginationContent({ className, ...props }: React.ComponentProps<'ul'>) 
 }
 
 function PaginationItem({ className, ...props }: React.ComponentProps<'li'>) {
-  return <li data-slot="pagination-item" className={cn('', className)} {...props} />;
+  return <li data-slot="pagination-item" className={className} {...props} />;
 }
 
 function PaginationLink({

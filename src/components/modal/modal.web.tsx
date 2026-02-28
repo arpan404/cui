@@ -42,7 +42,7 @@ export function Modal({
     <Div className='fixed inset-0 z-50 flex items-center justify-center p-4'>
       <button
         aria-label='Close modal overlay'
-        className='absolute inset-0 bg-background/65 backdrop-blur-sm'
+        className='absolute inset-0 bg-background/50 backdrop-blur-sm'
         onClick={() => onOpenChange(false)}
       />
       <Card

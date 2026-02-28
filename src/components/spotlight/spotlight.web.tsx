@@ -65,8 +65,8 @@ export function Spotlight({
     };
   }, []);
 
-  // Resolve color - use a default that works across browsers
-  const spotlightColor = color || 'oklch(0.6 0.2 260)';
+  // Resolve color - use CSS custom property from theme as default
+  const spotlightColor = color || 'var(--color-primary, oklch(0.6 0.2 260))';
 
   return (
     <div

@@ -7,11 +7,11 @@ export const alertVariants = cva(
       variant: {
         default: 'bg-background text-foreground',
         destructive:
-          'border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive',
+          'border-destructive/30 text-destructive bg-destructive/10 dark:border-destructive/40 dark:bg-destructive/15 [&>svg]:text-destructive',
         warning:
-          'border-warning/50 text-warning dark:border-warning [&>svg]:text-warning bg-warning',
+          'border-warning/30 text-warning-foreground bg-warning/10 [&>svg]:text-warning dark:border-warning/40 dark:bg-warning/15',
         success:
-          'border-success/50 text-success dark:border-success [&>svg]:text-success bg-success',
+          'border-success/30 text-success-foreground bg-success/10 [&>svg]:text-success dark:border-success/40 dark:bg-success/15',
       },
     },
     defaultVariants: {

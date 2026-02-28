@@ -119,7 +119,7 @@ export function FloatingDock({
           <a
             key={idx}
             href={item.href}
-            className="outline-none"
+            className="outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-xl"
             onMouseEnter={() => setHoveredIndex(idx)}
           >
             {content}
@@ -128,7 +128,7 @@ export function FloatingDock({
           <button
             key={idx}
             type="button"
-            className="outline-none"
+            className="outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-xl"
             onClick={item.onClick}
             onMouseEnter={() => setHoveredIndex(idx)}
           >
