@@ -5,7 +5,7 @@ export function SwitchDemo() {
   return (
     <div className="space-y-6">
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Sizes</p>
+        <p className="text-sm text-muted-foreground mb-3">Sizes</p>
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <Switch size="sm" id="s1" />
@@ -22,7 +22,7 @@ export function SwitchDemo() {
         </div>
       </div>
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Disabled</p>
+        <p className="text-sm text-muted-foreground mb-3">Disabled</p>
         <div className="flex items-center gap-3">
           <Switch disabled id="s4" />
           <Label htmlFor="s4">Disabled</Label>

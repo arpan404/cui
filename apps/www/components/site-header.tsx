@@ -6,6 +6,7 @@ import { SearchDialog } from './search-dialog';
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { Div, Span, Button, ScrollArea, Separator } from 'cui';
 import { categories, getComponentsByCategory } from '@/lib/components-meta';
 
 export function SiteHeader() {
@@ -14,50 +15,55 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-(--border) bg-(--background)/80 backdrop-blur-sm">
-        <div className="flex items-center justify-between h-14 px-4 lg:px-6">
-          <div className="flex items-center gap-4">
-            <button
-              className="lg:hidden p-2 -ml-2 rounded-md hover:bg-(--accent) transition-colors"
+      <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md">
+        <Div className="flex items-center justify-between h-14 px-4 lg:px-6">
+          <Div className="flex items-center gap-3">
+            <Button
+              variant="ghost"
+              size="icon-sm"
+              className="lg:hidden"
               onClick={() => setMobileOpen(true)}
             >
-              <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
-            </button>
-            <Link href="/" className="font-bold lg:hidden">CUI</Link>
-          </div>
-          <div className="flex items-center gap-2">
+            </Button>
+            <Link href="/" className="text-base font-bold tracking-tight lg:hidden">CUI</Link>
+          </Div>
+          <Div className="flex items-center gap-1.5">
             <SearchDialog />
             <ThemeConfigSelector />
             <ThemeToggle />
-          </div>
-        </div>
+          </Div>
+        </Div>
+        <Separator />
       </header>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="fixed inset-0 bg-black/50" onClick={() => setMobileOpen(false)} />
-          <aside className="fixed inset-y-0 left-0 w-72 bg-(--background) border-r border-(--border) overflow-y-auto">
-            <div className="p-4 border-b border-(--border) flex items-center justify-between">
-              <Link href="/" className="font-bold text-lg" onClick={() => setMobileOpen(false)}>CUI</Link>
-              <button
-                className="p-1.5 rounded-md hover:bg-(--accent) transition-colors"
+        <Div className="fixed inset-0 z-50 lg:hidden">
+          <Div className="fixed inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
+          <aside className="fixed inset-y-0 left-0 w-72 bg-background overflow-y-auto">
+            <Div className="px-5 h-14 flex items-center justify-between">
+              <Link href="/" className="text-base font-bold tracking-tight" onClick={() => setMobileOpen(false)}>CUI</Link>
+              <Button
+                variant="ghost"
+                size="icon-sm"
                 onClick={() => setMobileOpen(false)}
               >
-                <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
-              </button>
-            </div>
-            <nav className="p-3 space-y-1">
+              </Button>
+            </Div>
+            <Separator />
+            <nav className="px-3 py-3 space-y-px">
               <Link
                 href="/docs"
                 onClick={() => setMobileOpen(false)}
-                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                className={`flex items-center rounded-md px-3 py-1.5 text-[13px] transition-colors ${
                   pathname === '/docs'
-                    ? 'bg-(--accent) text-(--accent-foreground)'
-                    : 'text-(--muted-foreground) hover:bg-(--accent)'
+                    ? 'bg-accent text-foreground font-medium'
+                    : 'text-muted-foreground hover:bg-accent/60'
                 }`}
               >
                 Overview
@@ -68,11 +74,11 @@ export function SiteHeader() {
                   const components = getComponentsByCategory(cat.key);
                   if (components.length === 0) return null;
                   return (
-                    <div key={cat.key}>
-                      <div className="px-3 py-2 text-sm font-medium text-(--foreground)">
+                    <Div key={cat.key} className="pt-4">
+                      <Div className="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
                         {cat.label}
-                      </div>
-                      <div className="ml-2 space-y-0.5">
+                      </Div>
+                      <Div className="mt-1 space-y-px">
                         {components.map((comp) => {
                           const href = `/docs/components/${comp.slug}`;
                           return (
@@ -80,23 +86,23 @@ export function SiteHeader() {
                               key={comp.slug}
                               href={href}
                               onClick={() => setMobileOpen(false)}
-                              className={`block rounded-md px-3 py-1.5 text-sm transition-colors ${
+                              className={`flex items-center rounded-md px-3 py-1.5 text-[13px] transition-colors ${
                                 pathname === href
-                                  ? 'bg-(--accent) text-(--accent-foreground) font-medium'
-                                  : 'text-(--muted-foreground) hover:bg-(--accent)'
+                                  ? 'bg-accent text-foreground font-medium'
+                                  : 'text-muted-foreground hover:bg-accent/60'
                               }`}
                             >
                               {comp.name}
                             </Link>
                           );
                         })}
-                      </div>
-                    </div>
+                      </Div>
+                    </Div>
                   );
                 })}
             </nav>
           </aside>
-        </div>
+        </Div>
       )}
     </>
   );

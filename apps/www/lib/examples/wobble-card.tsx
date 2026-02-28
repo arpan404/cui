@@ -6,7 +6,7 @@ export function WobbleCardDemo() {
     <div className="max-w-sm">
       <WobbleCard>
         <h3 className="text-lg font-bold">Wobble Card</h3>
-        <p className="text-sm text-(--muted-foreground) mt-2">
+        <p className="text-sm text-muted-foreground mt-2">
           Move your mouse over this card to see the 3D wobble effect.
         </p>
       </WobbleCard>

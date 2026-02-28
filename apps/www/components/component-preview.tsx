@@ -1,3 +1,6 @@
+import { Div } from 'cui/primitives';
+import { cn } from 'cui/utils';
+
 export function ComponentPreview({
   children,
   className = '',
@@ -6,12 +9,15 @@ export function ComponentPreview({
   className?: string;
 }) {
   return (
-    <div
-      className={`rounded-lg border border-(--border) bg-(--background) p-6 sm:p-10 flex items-center justify-center min-h-[200px] ${className}`}
+    <Div
+      className={cn(
+        'rounded-xl bg-muted/30 p-8 sm:p-10 flex items-center justify-center min-h-[200px]',
+        className,
+      )}
     >
-      <div className="w-full flex items-center justify-center">
+      <Div className="w-full flex items-center justify-center">
         {children}
-      </div>
-    </div>
+      </Div>
+    </Div>
   );
 }

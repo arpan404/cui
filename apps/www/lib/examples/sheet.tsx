@@ -13,7 +13,7 @@ export function SheetDemo() {
           <SheetDescription>This is a sheet sliding from the right side.</SheetDescription>
         </SheetHeader>
         <div className="py-6">
-          <p className="text-sm text-(--muted-foreground)">Sheet content goes here.</p>
+          <p className="text-sm text-muted-foreground">Sheet content goes here.</p>
         </div>
       </SheetContent>
     </Sheet>

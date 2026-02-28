@@ -5,7 +5,7 @@ export function ProgressDemo() {
   return (
     <div className="space-y-8 w-full max-w-sm">
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Sizes</p>
+        <p className="text-sm text-muted-foreground mb-3">Sizes</p>
         <div className="space-y-4">
           <Progress size="sm" value={40} />
           <Progress value={60} />
@@ -14,7 +14,7 @@ export function ProgressDemo() {
         </div>
       </div>
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Variants</p>
+        <p className="text-sm text-muted-foreground mb-3">Variants</p>
         <div className="space-y-4">
           <Progress value={70} />
           <Progress variant="success" value={100} />
@@ -23,7 +23,7 @@ export function ProgressDemo() {
         </div>
       </div>
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Indeterminate</p>
+        <p className="text-sm text-muted-foreground mb-3">Indeterminate</p>
         <Progress />
       </div>
     </div>

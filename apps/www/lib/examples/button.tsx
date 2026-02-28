@@ -5,7 +5,7 @@ export function ButtonDemo() {
   return (
     <div className="space-y-8 w-full">
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Variants</p>
+        <p className="text-sm text-muted-foreground mb-3">Variants</p>
         <div className="flex flex-wrap gap-3 items-center">
           <Button>Default</Button>
           <Button variant="secondary">Secondary</Button>
@@ -16,7 +16,7 @@ export function ButtonDemo() {
         </div>
       </div>
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Sizes</p>
+        <p className="text-sm text-muted-foreground mb-3">Sizes</p>
         <div className="flex flex-wrap gap-3 items-center">
           <Button size="sm">Small</Button>
           <Button>Default</Button>
@@ -24,7 +24,7 @@ export function ButtonDemo() {
         </div>
       </div>
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">States</p>
+        <p className="text-sm text-muted-foreground mb-3">States</p>
         <div className="flex flex-wrap gap-3 items-center">
           <Button loading>Loading</Button>
           <Button disabled>Disabled</Button>

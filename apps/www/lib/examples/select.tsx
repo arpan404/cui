@@ -5,7 +5,7 @@ export function SelectDemo() {
   return (
     <div className="space-y-6 w-full max-w-xs">
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Default</p>
+        <p className="text-sm text-muted-foreground mb-3">Default</p>
         <Select>
           <SelectTrigger>
             <SelectValue placeholder="Select a fruit" />
@@ -19,7 +19,7 @@ export function SelectDemo() {
         </Select>
       </div>
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Sizes</p>
+        <p className="text-sm text-muted-foreground mb-3">Sizes</p>
         <div className="space-y-3">
           <Select>
             <SelectTrigger size="sm"><SelectValue placeholder="Small" /></SelectTrigger>

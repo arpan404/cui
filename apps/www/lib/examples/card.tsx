@@ -18,7 +18,7 @@ export function CardDemo() {
         </CardFooter>
       </Card>
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Sizes</p>
+        <p className="text-sm text-muted-foreground mb-3">Sizes</p>
         <div className="space-y-3">
           <Card size="sm">
             <CardHeader><CardTitle>Small Card</CardTitle></CardHeader>

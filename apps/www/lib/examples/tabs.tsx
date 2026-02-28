@@ -11,13 +11,13 @@ export function TabsDemo() {
           <TabsTrigger value="settings">Settings</TabsTrigger>
         </TabsList>
         <TabsContent value="account">
-          <p className="text-sm text-(--muted-foreground) p-4">Manage your account settings.</p>
+          <p className="text-sm text-muted-foreground p-4">Manage your account settings.</p>
         </TabsContent>
         <TabsContent value="password">
-          <p className="text-sm text-(--muted-foreground) p-4">Change your password here.</p>
+          <p className="text-sm text-muted-foreground p-4">Change your password here.</p>
         </TabsContent>
         <TabsContent value="settings">
-          <p className="text-sm text-(--muted-foreground) p-4">Configure your preferences.</p>
+          <p className="text-sm text-muted-foreground p-4">Configure your preferences.</p>
         </TabsContent>
       </Tabs>
     </div>

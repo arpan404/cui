@@ -12,8 +12,8 @@ export function HoverCardDemo() {
           <Avatar><AvatarFallback>UN</AvatarFallback></Avatar>
           <div className="space-y-1">
             <h4 className="text-sm font-semibold">@username</h4>
-            <p className="text-sm text-(--muted-foreground)">Software developer building cool things.</p>
-            <p className="text-xs text-(--muted-foreground)">Joined December 2021</p>
+            <p className="text-sm text-muted-foreground">Software developer building cool things.</p>
+            <p className="text-xs text-muted-foreground">Joined December 2021</p>
           </div>
         </div>
       </HoverCardContent>

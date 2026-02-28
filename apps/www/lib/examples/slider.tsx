@@ -5,7 +5,7 @@ export function SliderDemo() {
   return (
     <div className="space-y-8 w-full max-w-sm">
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Sizes</p>
+        <p className="text-sm text-muted-foreground mb-3">Sizes</p>
         <div className="space-y-6">
           <Slider size="sm" defaultValue={[30]} max={100} />
           <Slider defaultValue={[50]} max={100} />
@@ -13,7 +13,7 @@ export function SliderDemo() {
         </div>
       </div>
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Range</p>
+        <p className="text-sm text-muted-foreground mb-3">Range</p>
         <Slider defaultValue={[25, 75]} max={100} />
       </div>
     </div>

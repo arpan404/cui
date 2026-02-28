@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { Div, Span } from 'cui';
 import {
   isThemeConfigKey,
   THEME_CONFIG_STORAGE_KEY,
@@ -39,16 +40,16 @@ export function ThemeConfigSelector() {
   };
 
   if (!mounted) {
-    return <div className="h-9 w-28 rounded-md border border-border" aria-hidden="true" />;
+    return <Div className="h-8 w-28 rounded-md bg-muted animate-pulse" aria-hidden="true" />;
   }
 
   return (
     <label className="relative">
-      <span className="sr-only">Select theme config</span>
+      <Span className="sr-only">Select theme config</Span>
       <select
         value={config}
         onChange={(event) => onConfigChange(event.target.value as ThemeConfigKey)}
-        className="h-9 min-w-28 rounded-md border border-border bg-background px-3 text-sm text-foreground outline-none transition-colors hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring"
+        className="h-8 min-w-28 rounded-md bg-secondary px-3 text-sm text-secondary-foreground outline-none transition-colors hover:bg-secondary/80 focus-visible:ring-2 focus-visible:ring-ring"
         aria-label="Theme config"
       >
         {themeConfigs.map((item) => (

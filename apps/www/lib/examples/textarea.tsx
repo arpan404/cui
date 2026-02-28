@@ -5,7 +5,7 @@ export function TextareaDemo() {
   return (
     <div className="space-y-6 w-full max-w-sm">
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Sizes</p>
+        <p className="text-sm text-muted-foreground mb-3">Sizes</p>
         <div className="space-y-3">
           <Textarea size="sm" placeholder="Small textarea" />
           <Textarea placeholder="Default textarea" />
@@ -13,7 +13,7 @@ export function TextareaDemo() {
         </div>
       </div>
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Resize options</p>
+        <p className="text-sm text-muted-foreground mb-3">Resize options</p>
         <div className="space-y-3">
           <Textarea resize="none" placeholder="No resize" />
           <Textarea resize="both" placeholder="Resize both" />

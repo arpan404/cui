@@ -5,7 +5,7 @@ export function InputDemo() {
   return (
     <div className="space-y-6 w-full max-w-sm">
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Sizes</p>
+        <p className="text-sm text-muted-foreground mb-3">Sizes</p>
         <div className="space-y-3">
           <Input size="sm" placeholder="Small input" />
           <Input placeholder="Default input" />
@@ -13,7 +13,7 @@ export function InputDemo() {
         </div>
       </div>
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Disabled</p>
+        <p className="text-sm text-muted-foreground mb-3">Disabled</p>
         <Input disabled placeholder="Disabled input" />
       </div>
     </div>

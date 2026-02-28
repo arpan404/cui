@@ -5,7 +5,7 @@ export function CheckboxDemo() {
   return (
     <div className="space-y-6">
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Sizes</p>
+        <p className="text-sm text-muted-foreground mb-3">Sizes</p>
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <Checkbox size="sm" id="c1" />
@@ -22,7 +22,7 @@ export function CheckboxDemo() {
         </div>
       </div>
       <div>
-        <p className="text-sm text-(--muted-foreground) mb-3">Disabled</p>
+        <p className="text-sm text-muted-foreground mb-3">Disabled</p>
         <div className="flex items-center gap-3">
           <Checkbox disabled id="c4" />
           <Label htmlFor="c4">Disabled</Label>

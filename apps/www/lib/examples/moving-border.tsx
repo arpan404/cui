@@ -10,7 +10,7 @@ export function MovingBorderDemo() {
       <MovingBorder borderColor="var(--primary)" borderWidth={1} duration={5}>
         <div className="p-4">
           <h4 className="font-medium text-sm">Card with moving border</h4>
-          <p className="text-xs text-(--muted-foreground) mt-1">Animated spinning border effect</p>
+          <p className="text-xs text-muted-foreground mt-1">Animated spinning border effect</p>
         </div>
       </MovingBorder>
     </div>

@@ -14,7 +14,7 @@ export function DialogDemo() {
             <DialogDescription>This is a dialog description. You can add any content here.</DialogDescription>
           </DialogHeader>
           <div className="py-4">
-            <p className="text-sm text-(--muted-foreground)">Dialog body content goes here.</p>
+            <p className="text-sm text-muted-foreground">Dialog body content goes here.</p>
           </div>
           <DialogFooter>
             <Button variant="outline">Cancel</Button>

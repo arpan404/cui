@@ -7,7 +7,7 @@ export function SeparatorDemo() {
       <div>
         <h4 className="text-sm font-medium">Section Title</h4>
         <Separator className="my-4" />
-        <p className="text-sm text-(--muted-foreground)">Content below the separator.</p>
+        <p className="text-sm text-muted-foreground">Content below the separator.</p>
       </div>
       <div className="flex items-center gap-4 h-5">
         <span className="text-sm">Blog</span>
