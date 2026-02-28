@@ -21,6 +21,18 @@
     "paths": {
       "@/*": ["./*"],
       "cui": ["../../src/index.ts"],
+      "cui/primitives": ["../../src/primitives/index.web.tsx"],
+      "cui/button": ["../../src/components/button/button.web.tsx"],
+      "cui/card": ["../../src/components/card/card.web.tsx"],
+      "cui/badge": ["../../src/components/badge/badge.web.tsx"],
+      "cui/separator": ["../../src/components/separator/separator.web.tsx"],
+      "cui/typography": ["../../src/components/typography/typography.web.tsx"],
+      "cui/kbd": ["../../src/components/kbd/kbd.web.tsx"],
+      "cui/scroll-area": ["../../src/components/scroll-area/scroll-area.web.tsx"],
+      "cui/table": ["../../src/components/table/table.web.tsx"],
+      "cui/code": ["../../src/components/code/code.web.tsx"],
+      "cui/markdown": ["../../src/components/markdown/markdown.web.tsx"],
+      "cui/utils": ["../../src/utils/cn.ts"],
       "cui/components": ["../../src/components/index.web.tsx"],
       "cui/styles.css": ["../../src/styles.css"]
     }
