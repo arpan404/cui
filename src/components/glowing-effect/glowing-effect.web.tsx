@@ -11,6 +11,10 @@ export interface GlowingEffectProps extends React.HTMLAttributes<HTMLDivElement>
   spread?: number;
   /** Border radius class */
   borderRadius?: string;
+  /** Transition duration in ms for the glow opacity */
+  transitionDuration?: number;
+  /** Glow intensity as opacity percentage (0-100) */
+  glowIntensity?: number;
 }
 
 export function GlowingEffect({
@@ -19,6 +23,8 @@ export function GlowingEffect({
   blur = 40,
   spread = 2,
   borderRadius = 'rounded-xl',
+  transitionDuration = 500,
+  glowIntensity = 15,
   children,
   ...props
 }: GlowingEffectProps) {
@@ -43,11 +49,12 @@ export function GlowingEffect({
     >
       <div
         className={cn(
-          'pointer-events-none absolute -inset-px transition-opacity duration-500',
+          'pointer-events-none absolute -inset-px transition-opacity',
           borderRadius,
-          isHovered ? 'opacity-100' : 'opacity-0',
         )}
         style={{
+          transitionDuration: `${transitionDuration}ms`,
+          opacity: isHovered ? glowIntensity / 100 : 0,
           background: `radial-gradient(${blur * 4}px circle at ${position.x}px ${position.y}px, ${color || 'var(--primary)'}, transparent 60%)`,
           padding: `${spread}px`,
           WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',

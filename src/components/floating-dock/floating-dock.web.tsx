@@ -17,6 +17,10 @@ export interface FloatingDockProps extends React.HTMLAttributes<HTMLDivElement> 
   magnification?: number;
   /** Distance in px that magnification affects neighboring items */
   distance?: number;
+  /** Icon container size in px */
+  iconSize?: number;
+  /** Animation duration in ms for scale transitions */
+  animationDuration?: number;
 }
 
 export function FloatingDock({
@@ -24,6 +28,8 @@ export function FloatingDock({
   position = 'bottom',
   magnification = 1.6,
   distance = 120,
+  iconSize = 40,
+  animationDuration = 200,
   className,
   ...props
 }: FloatingDockProps) {
@@ -86,7 +92,7 @@ export function FloatingDock({
               <div
                 className="absolute whitespace-nowrap rounded-md bg-foreground px-2 py-1 text-xs text-background shadow-md"
                 style={{
-                  bottom: `${scale * 40 + 12}px`,
+                  bottom: `${scale * iconSize + 12}px`,
                   opacity: 1,
                   transition: 'opacity 150ms ease-out',
                 }}
@@ -96,10 +102,12 @@ export function FloatingDock({
             )}
             <div
               ref={(el) => { itemRefs.current[idx] = el; }}
-              className="flex size-10 items-center justify-center rounded-xl bg-secondary/80 text-foreground hover:bg-secondary will-change-transform"
+              className="flex items-center justify-center rounded-xl bg-secondary/80 text-foreground hover:bg-secondary will-change-transform"
               style={{
+                width: `${iconSize}px`,
+                height: `${iconSize}px`,
                 transform: `scale(${scale}) translateY(${translateY}px)`,
-                transition: 'transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                transition: `transform ${animationDuration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`,
               }}
             >
               {item.icon}

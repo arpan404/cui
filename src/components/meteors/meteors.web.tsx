@@ -5,18 +5,22 @@ import { cn } from '../../utils/cn';
 export interface MeteorsProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Number of meteors */
   count?: number;
+  /** Minimum animation duration in seconds */
+  minDuration?: number;
+  /** Maximum animation duration in seconds */
+  maxDuration?: number;
 }
 
-export function Meteors({ className, count = 20, ...props }: MeteorsProps) {
+export function Meteors({ className, count = 20, minDuration = 2, maxDuration = 5, ...props }: MeteorsProps) {
   const meteors = React.useMemo(() => {
     return Array.from({ length: count }, (_, i) => ({
       id: i,
       left: `${Math.floor(Math.random() * 100)}%`,
       top: `${Math.floor(Math.random() * 40) - 20}%`,
       delay: `${Math.random() * 5}s`,
-      duration: `${Math.random() * 3 + 2}s`,
+      duration: `${Math.random() * (maxDuration - minDuration) + minDuration}s`,
     }));
-  }, [count]);
+  }, [count, minDuration, maxDuration]);
 
   return (
     <div className={cn('absolute inset-0 overflow-hidden pointer-events-none', className)} {...props}>

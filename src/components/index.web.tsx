@@ -5,10 +5,12 @@ export { Button, IconButton, buttonVariants } from './button/button.web';
 export type { ButtonProps, ButtonVariant, ButtonSize } from './button/button.web';
 
 // Input
-export { Input } from './input/input.web';
+export { Input, inputVariants } from './input/input.web';
+export type { InputSize } from './input/input.shared';
 
 // Textarea
-export { Textarea } from './textarea/textarea.web';
+export { Textarea, textareaVariants } from './textarea/textarea.web';
+export type { TextareaSize, TextareaResize } from './textarea/textarea.shared';
 
 // Badge
 export { Badge, badgeVariants } from './badge/badge.web';
@@ -32,9 +34,11 @@ export { Skeleton } from './skeleton/skeleton.web';
 
 // Switch
 export { Switch } from './switch/switch.web';
+export type { SwitchSize } from './switch/switch.shared';
 
 // Checkbox
 export { Checkbox } from './checkbox/checkbox.web';
+export type { CheckboxSize } from './checkbox/checkbox.shared';
 
 // Avatar
 export { Avatar, AvatarImage, AvatarFallback } from './avatar/avatar.web';
@@ -59,7 +63,8 @@ export { Alert, AlertTitle, AlertDescription, alertVariants } from './alert/aler
 export type { AlertVariant } from './alert/alert.web';
 
 // Progress
-export { Progress } from './progress/progress.web';
+export { Progress, progressVariants, progressIndicatorVariants } from './progress/progress.web';
+export type { ProgressSize, ProgressVariant } from './progress/progress.shared';
 
 // Table
 export { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption } from './table/table.web';

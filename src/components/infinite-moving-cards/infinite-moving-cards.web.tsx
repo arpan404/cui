@@ -11,6 +11,10 @@ export interface InfiniteMovingCardsProps extends React.HTMLAttributes<HTMLDivEl
   direction?: 'left' | 'right';
   speed?: 'fast' | 'normal' | 'slow';
   pauseOnHover?: boolean;
+  /** Custom animation duration (e.g., "30s"), overrides speed enum */
+  customDuration?: string;
+  /** Gap between cards in px */
+  gap?: number;
 }
 
 export function InfiniteMovingCards({
@@ -18,6 +22,8 @@ export function InfiniteMovingCards({
   direction = 'left',
   speed = 'normal',
   pauseOnHover = true,
+  customDuration,
+  gap = 16,
   className,
   ...props
 }: InfiniteMovingCardsProps) {
@@ -45,7 +51,7 @@ export function InfiniteMovingCards({
         className,
       )}
       style={{
-        '--animation-duration': speedMap[speed],
+        '--animation-duration': customDuration || speedMap[speed],
         '--animation-direction': direction === 'left' ? 'forwards' : 'reverse',
       } as React.CSSProperties}
       {...props}
@@ -53,10 +59,11 @@ export function InfiniteMovingCards({
       <ul
         ref={scrollerRef}
         className={cn(
-          'flex w-max min-w-full shrink-0 flex-nowrap gap-4',
+          'flex w-max min-w-full shrink-0 flex-nowrap',
           start && 'animate-scroll',
           pauseOnHover && 'hover:[animation-play-state:paused]',
         )}
+        style={{ gap: `${gap}px` }}
       >
         {items.map((item, idx) => (
           <li

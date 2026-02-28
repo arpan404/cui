@@ -7,12 +7,15 @@ export interface SpotlightProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: number;
   /** Spotlight color (CSS color value, defaults to theme primary) */
   color?: string;
+  /** Lerp interpolation factor for smooth movement (0-1) */
+  smoothing?: number;
 }
 
 export function Spotlight({
   className,
   size = 400,
   color,
+  smoothing = 0.15,
   children,
   ...props
 }: SpotlightProps) {
@@ -32,8 +35,8 @@ export function Spotlight({
       if (!active) return;
       const prev = animatedRef.current;
       const target = positionRef.current;
-      const nx = lerp(prev.x, target.x, 0.15);
-      const ny = lerp(prev.y, target.y, 0.15);
+      const nx = lerp(prev.x, target.x, smoothing);
+      const ny = lerp(prev.y, target.y, smoothing);
 
       if (Math.abs(nx - prev.x) > 0.1 || Math.abs(ny - prev.y) > 0.1) {
         animatedRef.current = { x: nx, y: ny };
@@ -51,7 +54,7 @@ export function Spotlight({
       active = false;
       cancelAnimationFrame(rafRef.current);
     };
-  }, [isHovered]);
+  }, [isHovered, smoothing]);
 
   const handleMouseMove = React.useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;

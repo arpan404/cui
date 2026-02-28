@@ -2,19 +2,30 @@ import * as React from 'react';
 import * as ProgressPrimitive from '@radix-ui/react-progress';
 
 import { cn } from '../../utils/cn';
+import {
+  progressVariants,
+  progressIndicatorVariants,
+  type ProgressSize,
+  type ProgressVariant,
+} from './progress.shared';
 
 function Progress({
   className,
   value,
+  size,
+  variant,
   ...props
-}: React.ComponentProps<typeof ProgressPrimitive.Root>) {
+}: React.ComponentProps<typeof ProgressPrimitive.Root> & {
+  size?: ProgressSize;
+  variant?: ProgressVariant;
+}) {
   const isIndeterminate = value === undefined || value === null;
 
   return (
     <ProgressPrimitive.Root
       data-slot="progress"
       className={cn(
-        'bg-primary/15 relative h-2 w-full overflow-hidden rounded-full',
+        progressVariants({ size, variant }),
         className,
       )}
       {...props}
@@ -22,7 +33,7 @@ function Progress({
       <ProgressPrimitive.Indicator
         data-slot="progress-indicator"
         className={cn(
-          'bg-primary h-full flex-1 rounded-full transition-all duration-500 ease-out',
+          progressIndicatorVariants({ variant }),
           isIndeterminate && 'w-1/3 animate-[progress-indeterminate_1.5s_ease-in-out_infinite]',
           !isIndeterminate && 'w-full',
         )}
@@ -33,3 +44,4 @@ function Progress({
 }
 
 export { Progress };
+export { progressVariants, progressIndicatorVariants } from './progress.shared';

@@ -12,6 +12,9 @@ type ChartContextProps = {
   config: ChartConfig;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type ChartPayloadItem = Record<string, any>;
+
 const ChartContext = React.createContext<ChartContextProps | null>(null);
 
 function useChart() {
@@ -106,8 +109,14 @@ function ChartTooltipContent({
   color,
   nameKey,
   labelKey,
-}: React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
-  React.ComponentProps<'div'> & {
+}: React.ComponentProps<'div'> & {
+    active?: boolean;
+    payload?: ChartPayloadItem[];
+    label?: string;
+    labelFormatter?: (label: unknown, payload: ChartPayloadItem[]) => React.ReactNode;
+    labelClassName?: string;
+    formatter?: (value: unknown, name: string, item: ChartPayloadItem, index: number, payload: ChartPayloadItem[]) => React.ReactNode;
+    color?: string;
     hideLabel?: boolean;
     hideIndicator?: boolean;
     indicator?: 'line' | 'dot' | 'dashed';
@@ -246,8 +255,9 @@ function ChartLegendContent({
   payload,
   verticalAlign = 'bottom',
   nameKey,
-}: React.ComponentProps<'div'> &
-  Pick<RechartsPrimitive.LegendProps, 'payload' | 'verticalAlign'> & {
+}: React.ComponentProps<'div'> & {
+    payload?: ChartPayloadItem[];
+    verticalAlign?: 'top' | 'bottom';
     hideIcon?: boolean;
     nameKey?: string;
   }) {

@@ -17,11 +17,17 @@ export interface ColourfulTextProps extends React.HTMLAttributes<HTMLSpanElement
   text: string;
   /** Custom colors array */
   colors?: string[];
+  /** Interval in ms for color rotation */
+  interval?: number;
+  /** CSS transition duration in ms */
+  transitionDuration?: number;
 }
 
 export function ColourfulText({
   text,
   colors = COLORS,
+  interval = 2000,
+  transitionDuration = 700,
   className,
   ...props
 }: ColourfulTextProps) {
@@ -30,21 +36,24 @@ export function ColourfulText({
   );
 
   React.useEffect(() => {
-    const interval = setInterval(() => {
+    const timerId = setInterval(() => {
       setColorIndices(prev =>
         prev.map((idx) => (idx + 1) % colors.length)
       );
-    }, 2000);
-    return () => clearInterval(interval);
-  }, [colors.length]);
+    }, interval);
+    return () => clearInterval(timerId);
+  }, [colors.length, interval]);
 
   return (
     <span className={cn('inline-block', className)} {...props}>
       {text.split('').map((char, idx) => (
         <span
           key={idx}
-          className="inline-block transition-colors duration-700"
-          style={{ color: char === ' ' ? undefined : colors[colorIndices[idx] ?? 0] }}
+          className="inline-block"
+          style={{
+            color: char === ' ' ? undefined : colors[colorIndices[idx] ?? 0],
+            transition: `color ${transitionDuration}ms`,
+          }}
         >
           {char === ' ' ? '\u00A0' : char}
         </span>

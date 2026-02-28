@@ -21,6 +21,8 @@ export interface SparklesProps extends React.HTMLAttributes<HTMLDivElement> {
   maxSize?: number;
   /** Color of sparkles */
   color?: string;
+  /** Interval in ms for regenerating sparkles */
+  regenerateInterval?: number;
 }
 
 function generateSparkle(color: string, minSize: number, maxSize: number): SparkleData {
@@ -41,6 +43,7 @@ export function Sparkles({
   minSize = 2,
   maxSize = 6,
   color = 'var(--primary)',
+  regenerateInterval = 800,
   children,
   ...props
 }: SparklesProps) {
@@ -64,10 +67,10 @@ export function Sparkles({
         }
         return newSparkles;
       });
-    }, 800);
+    }, regenerateInterval);
 
     return () => clearInterval(interval);
-  }, [count, color, minSize, maxSize]);
+  }, [count, color, minSize, maxSize, regenerateInterval]);
 
   return (
     <div className={cn('relative inline-block', className)} {...props}>

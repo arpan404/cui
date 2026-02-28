@@ -36,5 +36,9 @@ pnpm-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 
+# Next.js
+apps/www/.next/
+apps/www/out/
+
 # Package artifacts
 *.tgz

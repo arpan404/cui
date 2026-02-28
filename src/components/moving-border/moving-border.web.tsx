@@ -14,6 +14,8 @@ export interface MovingBorderProps extends React.HTMLAttributes<HTMLDivElement> 
   /** Render as button */
   as?: 'div' | 'button';
   onClick?: () => void;
+  /** CSS animation-timing-function for the spinning border */
+  easing?: string;
 }
 
 export function MovingBorder({
@@ -23,6 +25,7 @@ export function MovingBorder({
   borderColor,
   borderRadius = 'rounded-xl',
   as: Component = 'div',
+  easing = 'linear',
   children,
   ...props
 }: MovingBorderProps) {
@@ -44,6 +47,7 @@ export function MovingBorder({
           className="absolute inset-[-100%] animate-spin-slow"
           style={{
             animationDuration: `${duration}s`,
+            animationTimingFunction: easing,
             background: `conic-gradient(from 0deg, transparent 0%, ${borderColor || 'var(--primary)'} 10%, transparent 20%)`,
           }}
         />

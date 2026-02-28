@@ -7,12 +7,18 @@ export interface CardSpotlightProps extends React.HTMLAttributes<HTMLDivElement>
   radius?: number;
   /** Spotlight color (CSS color value) */
   color?: string;
+  /** Glow size (radius in px), overrides radius if provided */
+  glowSize?: number;
+  /** Transition duration in ms for the spotlight opacity */
+  transitionDuration?: number;
 }
 
 export function CardSpotlight({
   className,
   radius = 350,
   color,
+  glowSize,
+  transitionDuration = 500,
   children,
   ...props
 }: CardSpotlightProps) {
@@ -29,6 +35,8 @@ export function CardSpotlight({
   // Use color-mix for browser-safe gradient with CSS variables
   const spotlightColor = color || 'var(--primary)';
 
+  const effectiveRadius = glowSize ?? radius;
+
   return (
     <div
       ref={divRef}
@@ -42,10 +50,11 @@ export function CardSpotlight({
       {...props}
     >
       <div
-        className="pointer-events-none absolute inset-0 transition-opacity duration-500"
+        className="pointer-events-none absolute inset-0 transition-opacity"
         style={{
+          transitionDuration: `${transitionDuration}ms`,
           opacity,
-          background: `radial-gradient(${radius}px circle at ${position.x}px ${position.y}px, color-mix(in srgb, ${spotlightColor} 15%, transparent), transparent 60%)`,
+          background: `radial-gradient(${effectiveRadius}px circle at ${position.x}px ${position.y}px, color-mix(in srgb, ${spotlightColor} 15%, transparent), transparent 60%)`,
         }}
       />
       <div className="relative z-10">{children}</div>

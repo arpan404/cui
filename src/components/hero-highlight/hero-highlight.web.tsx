@@ -5,11 +5,14 @@ import { cn } from '../../utils/cn';
 export interface HeroHighlightProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Container class for the background */
   containerClassName?: string;
+  /** Brightness percentage of the highlight effect */
+  intensity?: number;
 }
 
 export function HeroHighlight({
   className,
   containerClassName,
+  intensity = 8,
   children,
   ...props
 }: HeroHighlightProps) {
@@ -35,7 +38,7 @@ export function HeroHighlight({
       <div
         className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, color-mix(in srgb, var(--primary) 8%, transparent), transparent 40%)`,
+          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, color-mix(in srgb, var(--primary) ${intensity}%, transparent), transparent 40%)`,
         }}
       />
       <div className={cn('relative z-10', className)}>{children}</div>

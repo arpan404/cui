@@ -9,9 +9,13 @@ export interface FocusCardItem {
 
 export interface FocusCardsProps extends React.HTMLAttributes<HTMLDivElement> {
   cards: FocusCardItem[];
+  /** Scale factor for hovered card image */
+  hoverScale?: number;
+  /** Tailwind blur class applied to non-hovered cards (e.g., "blur-sm", "blur-md") */
+  blurAmount?: string;
 }
 
-export function FocusCards({ cards, className, ...props }: FocusCardsProps) {
+export function FocusCards({ cards, className, hoverScale = 1.1, blurAmount = 'blur-sm', ...props }: FocusCardsProps) {
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
 
   return (
@@ -24,7 +28,7 @@ export function FocusCards({ cards, className, ...props }: FocusCardsProps) {
           key={idx}
           className={cn(
             'group relative aspect-[3/4] overflow-hidden rounded-xl cursor-pointer transition-all duration-500 ease-out',
-            hoveredIndex !== null && hoveredIndex !== idx && 'blur-sm scale-[0.98] opacity-60',
+            hoveredIndex !== null && hoveredIndex !== idx && `${blurAmount} scale-[0.98] opacity-60`,
           )}
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
@@ -32,7 +36,8 @@ export function FocusCards({ cards, className, ...props }: FocusCardsProps) {
           <img
             src={card.src}
             alt={card.title}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500"
+            style={{ transform: `scale(${hoveredIndex === idx ? hoverScale : 1})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">

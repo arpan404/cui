@@ -9,12 +9,18 @@ export interface TypewriterEffectProps extends React.HTMLAttributes<HTMLDivEleme
   speed?: number;
   /** Whether the cursor blinks */
   cursorBlink?: boolean;
+  /** Callback when typing finishes */
+  onComplete?: () => void;
+  /** Whether to loop the typing animation */
+  loop?: boolean;
 }
 
 export function TypewriterEffect({
   words,
   speed = 80,
   cursorBlink = true,
+  onComplete,
+  loop = false,
   className,
   ...props
 }: TypewriterEffectProps) {
@@ -25,13 +31,21 @@ export function TypewriterEffect({
   React.useEffect(() => {
     if (displayedCount >= fullText.length) {
       setIsDone(true);
+      onComplete?.();
+      if (loop) {
+        const loopTimeout = setTimeout(() => {
+          setDisplayedCount(0);
+          setIsDone(false);
+        }, speed * 5);
+        return () => clearTimeout(loopTimeout);
+      }
       return;
     }
     const timeout = setTimeout(() => {
       setDisplayedCount(prev => prev + 1);
     }, speed);
     return () => clearTimeout(timeout);
-  }, [displayedCount, fullText.length, speed]);
+  }, [displayedCount, fullText.length, speed, onComplete, loop]);
 
   let charIndex = 0;
 

@@ -15,6 +15,8 @@ export interface WavyBackgroundProps extends React.HTMLAttributes<HTMLDivElement
   layers?: number;
   /** Wave opacity */
   waveOpacity?: number;
+  /** Numeric speed factor, overrides speed enum for finer control */
+  animationSpeed?: number;
 }
 
 export function WavyBackground({
@@ -25,6 +27,7 @@ export function WavyBackground({
   speed = 'normal',
   layers = 5,
   waveOpacity = 0.5,
+  animationSpeed,
   children,
   ...props
 }: WavyBackgroundProps) {
@@ -62,7 +65,8 @@ export function WavyBackground({
     window.addEventListener('resize', resize);
 
     const speedMap = { slow: 0.5, normal: 1, fast: 2 };
-    const speedFactor = speedMap[speed] || 1;
+    const speedFactor = animationSpeed != null ? 1 : (speedMap[speed] || 1);
+    const timeIncrement = animationSpeed != null ? animationSpeed : 0.015;
 
     // Resolve CSS custom property colors to actual colors
     const resolvedColors: string[] = [];
@@ -126,7 +130,7 @@ export function WavyBackground({
         );
       }
 
-      time += 0.015;
+      time += timeIncrement;
       animationRef.current = requestAnimationFrame(animate);
     };
 
@@ -136,7 +140,7 @@ export function WavyBackground({
       cancelAnimationFrame(animationRef.current);
       window.removeEventListener('resize', resize);
     };
-  }, [layers, waveColors, speed, waveWidth, waveOpacity]);
+  }, [layers, waveColors, speed, waveWidth, waveOpacity, animationSpeed]);
 
   return (
     <div className={cn('relative flex flex-col items-center justify-center overflow-hidden', className)} {...props}>

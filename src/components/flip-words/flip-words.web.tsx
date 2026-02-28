@@ -7,11 +7,17 @@ export interface FlipWordsProps extends React.HTMLAttributes<HTMLSpanElement> {
   words: string[];
   /** Duration between flips in ms */
   duration?: number;
+  /** Duration of the exit animation in ms */
+  exitDuration?: number;
+  /** Duration of the enter phase in ms */
+  enterDuration?: number;
 }
 
 export function FlipWords({
   words,
   duration = 3000,
+  exitDuration = 300,
+  enterDuration = 50,
   className,
   ...props
 }: FlipWordsProps) {
@@ -33,19 +39,19 @@ export function FlipWords({
       const exitTimer = setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % words.length);
         setPhase('enter');
-      }, 300);
+      }, exitDuration);
       return () => clearTimeout(exitTimer);
     }
     if (phase === 'enter') {
       const enterTimer = setTimeout(() => {
         setPhase('visible');
-      }, 50);
+      }, enterDuration);
       return () => clearTimeout(enterTimer);
     }
-  }, [phase, words.length]);
+  }, [phase, words.length, exitDuration, enterDuration]);
 
   const animStyles: React.CSSProperties = {
-    transition: phase === 'enter' ? 'none' : 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
+    transition: phase === 'enter' ? 'none' : `all ${exitDuration}ms cubic-bezier(0.4, 0, 0.2, 1)`,
     opacity: phase === 'exit' ? 0 : phase === 'enter' ? 0 : 1,
     transform:
       phase === 'exit'
